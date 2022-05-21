@@ -141,6 +141,7 @@
 			<form class="register-form" action="<c:url value='/users/enroll'/>" method="post">
 				<input type="text" id="email" name="email" placeholder="Email" /> 
 				<input type="password" id="password" name="password" placeholder="Password" /> 
+				<input type="text" id="position" name="position" placeholder="Position" /> 
 				<button type="submit">create</button>
 				<p class="message">Already registered? <a href="#">Sign In</a></p>
 			</form>

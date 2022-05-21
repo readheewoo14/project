@@ -9,23 +9,14 @@
 				<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<c:url value='/'/>">Home</a>
+			<a class="navbar-brand" href="<c:url value='/'/>"></a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-					aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="<c:url value='/boards'/>">Board</a></li>
-						<li><a href="<c:url value='/test'/>">test</a></li>
-					</ul>
-				</li>
-			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${not empty user }">
-					<li><a href="#"><span class="badge">${user.email }</span></a></li>
+					<li><a href="#"><span class="badge">${user.email}</span></a></li>
 				</c:if>
 				<li class="${active=='login'?'active':'' }">
 					<c:if test="${not empty user }">
@@ -40,9 +31,6 @@
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
-		
-		
-		
 	</div>
 	<!-- /.container-fluid -->
 </nav>
