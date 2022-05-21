@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ojc.board.repository.BoardMapper">
+	
+	<select id="getBoardList" parameterType="ojc.board.model.BoardVo" resultType="ojc.board.model.BoardVo">
+		/*ojc.board.repository.BoardMapper.selectById*/
+		SELECT EMAIL
+			 , PASSWORD
+		  FROM XUSER
+		 WHERE 1=1 
+		 <if test='email != null and email != ""'>
+		   AND EMAIL = #{email} 		 
+		 </if>
+	</select> 
+	
+	
+</mapper>
