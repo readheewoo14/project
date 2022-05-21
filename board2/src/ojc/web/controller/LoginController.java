@@ -45,7 +45,7 @@ public class LoginController {
 		} else {
 			User user = new User();
 			user.setEmail(login.getEmail());
-			user.setEmail(login.getPassword());
+			user.setPassword(login.getPassword());
 			
 			session.setAttribute("user", user);
 			return "redirect:/boards";

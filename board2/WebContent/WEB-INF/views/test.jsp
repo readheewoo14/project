@@ -167,9 +167,9 @@ ul ul a {
 		    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		        <div class="container-fluid">
 		
-		            <button type="button" id="sidebarCollapse" class="btn btn-info">
+		            <button type="button" id="sidebarCollapse" class="btn" style="margin-top: 10px;">
 		                <i class="fas fa-align-left"></i>
-		                <span>Toggle Sidebar</span>
+		                <span style="color:white">사이바 숨기기</span>
 		            </button>
 					<div style="margin-inline: 30px;">
 						<h3>로그인 테이블 정보</h3>

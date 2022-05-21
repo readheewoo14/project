@@ -1,6 +1,8 @@
 package ojc.board.model;
 
+import lombok.Data;
 
+@Data
 public class BoardVo {
 	private String email;  
 	private String password;
@@ -17,4 +19,6 @@ public class BoardVo {
 	public final void setPassword(String password) {
 		this.password = password;
 	}
+
+	
 }

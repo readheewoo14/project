@@ -9,9 +9,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style type="text/css">
 		#main {
-		    min-width: 70%;
-		    max-width: 70%;
-		    min-height: 100vh;
+		    min-width: 85%;
+		    max-width: 85%;
+		    min-height: 80vh;
 		    z-index:0;
 		    float: right
 		}
@@ -23,8 +23,12 @@
 		<c:import url="nav_top.jsp"></c:import>
 		<div id="main">
 			<div style="margin-inline: 30px;">
-				<h3>로그인 테이블 정보</h3>
-				<div id="grid"></div>
+				<h4>주간 업무 보고</h4>
+				<div id="grid1"></div>
+			</div>
+			<div style="margin-inline: 30px;">
+				<h4>월간 업무 보고</h4>
+				<div id="grid2"></div>
 			</div>
 		</div>	
 	
@@ -37,21 +41,35 @@
 				
 				
 			});
-			var grid;
+			var grid1;
 			var gridData = [];
 			
 			//그리드 생성
 			function drawGrid() {
-				grid = new tui.Grid({
-					el : document.getElementById('grid'),
+				grid1 = new tui.Grid({
+					el : document.getElementById('grid1'),
 					data : gridData,
 					scrollX : false,
 					scrollY : false,
 					columns : [ {
-						header : 'EMAIL',
+						header : '보고1',
 						name : 'email'
 					}, {
-						header : 'PASSWORD',
+						header : '보고2',
+						name : 'password'
+					}]
+				});
+				
+				grid2 = new tui.Grid({
+					el : document.getElementById('grid2'),
+					data : gridData,
+					scrollX : false,
+					scrollY : false,
+					columns : [ {
+						header : '보고1',
+						name : 'email'
+					}, {
+						header : '보고2',
 						name : 'password'
 					}]
 				});
@@ -76,7 +94,7 @@
 					// [응답 확인 부분 - json 데이터를 받습니다]
 					success: function(response) {
 						gridData = response.boardList;
-						grid.resetData(gridData); 
+						grid1.resetData(gridData); 
 					},
 					    			
 					// [에러 확인 부분]

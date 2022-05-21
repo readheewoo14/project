@@ -24,7 +24,7 @@ public class BoardController {
 		if (user == null) {
 			return session.getServletContext().getContextPath() + "login";
 		}
-		
+		System.out.println(session + "###############");
 		return "board_list"; 
 	}
 	
