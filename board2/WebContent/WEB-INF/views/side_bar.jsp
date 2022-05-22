@@ -126,32 +126,41 @@ ul ul a {
 			<ul class="list-unstyled components">
 				<p>REPORT SYSTEM PROJECT</p>
 				<li class="active">
-					<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">내업무 보고</a>
-					<ul class="collapse list-unstyled" id="homeSubmenu">
+					<a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">내업무 보고</a>
+					<ul class="collapse list" id="submenu1">
 						<li><a href="boards">주/월간 업무작성</a></li>
 						<li><a href="test">주요업무계획</a></li>
 						<li><a href="#">업무공유</a></li>
-					</ul>
-				</li>
+					</ul></li>
 				<li>
-					<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">팀업무 보고</a>
-					<ul class="collapse list-unstyled" id="homeSubmenu2">
-						<li><a href="#">팀명</a></li>
-						<li><a href="#">팀명</a></li>
-						<li><a href="#">팀명</a></li>
+					<a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">팀업무보고</a>
+					<ul class="collapse list" id="submenu2">
+						<li><a href="#submenu21" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">팀명1</a>
+							<ul class="collapse list" id="submenu21">
+								<li><a href="#">주간 업무보고</a></li>
+								<li><a href="#">월간 업무보고</a></li>
+								<li><a href="#">주요업무계획</a></li>
+							</ul>
+						</li>
+						<li><a href="#submenu22" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">팀명2</a>
+							<ul class="collapse list" id="submenu22">
+								<li><a href="#">주간 업무보고</a></li>
+								<li><a href="#">월간 업무보고</a></li>
+								<li><a href="#">주요업무계획</a></li>
+							</ul>
+						</li>
 					</ul>
 				</li>
 			</ul>
 		</nav>
 
 		<!-- Page Content -->
-		<div id="content">
-		</div>
+		<div id="content"></div>
 	</div>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			
+
 		});
 	</script>
 </body>
