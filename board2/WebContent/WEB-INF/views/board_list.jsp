@@ -22,12 +22,12 @@
 		<c:import url="side_bar.jsp"></c:import>
 		<c:import url="nav_top.jsp"></c:import>
 		<div id="main">
-			<div style="margin-inline: 30px;">
-				<h4>주간 업무 보고</h4>
+			<div style="margin-inline:30px">
+				<h4 style="font-weight: bold;"><span style="font-size:23px">주간 업무 보고</span><span style="float:right;margin-right:10px;">total(<span id="weekTotal">0</span>)</span></h4>
 				<div id="grid1"></div>
 			</div>
-			<div style="margin-inline: 30px;">
-				<h4>월간 업무 보고</h4>
+			<div style="margin-top: 57px;margin-inline:30px">
+				<h4 style="font-weight: bold;"><span style="font-size:23px">월간 업무 보고</span><span style="float:right;margin-right:10px;">total(<span id="monthRpTotal">0</span>)</span></h4>
 				<div id="grid2"></div>
 			</div>
 		</div>	
@@ -49,29 +49,29 @@
 				grid1 = new tui.Grid({
 					el : document.getElementById('grid1'),
 					data : gridData,
+					bodyHeight : 320,
 					scrollX : false,
 					scrollY : false,
-					columns : [ {
-						header : '보고1',
-						name : 'email'
-					}, {
-						header : '보고2',
-						name : 'password'
-					}]
+					columns : [ 
+						  {header : '작성자'  , name : 'email' }
+						, {header : '제목' 	, name : 'password'}
+						, {header : '내용'    , name : 'password'}
+						, {header : '결재상태' , name : 'password'}
+					]
 				});
 				
 				grid2 = new tui.Grid({
 					el : document.getElementById('grid2'),
 					data : gridData,
+					bodyHeight : 320,
 					scrollX : false,
 					scrollY : false,
-					columns : [ {
-						header : '보고1',
-						name : 'email'
-					}, {
-						header : '보고2',
-						name : 'password'
-					}]
+					columns : [ 
+				  		{header : '작성자'  , name : 'email' }
+					  , {header : '제목'    , name : 'password'}
+					  , {header : '내용'    , name : 'password'}
+					  , {header : '결재상태' , name : 'password'}
+					]
 				});
 			}
 			
@@ -94,6 +94,7 @@
 					// [응답 확인 부분 - json 데이터를 받습니다]
 					success: function(response) {
 						gridData = response.boardList;
+						
 						grid1.resetData(gridData); 
 					},
 					    			

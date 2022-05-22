@@ -16,7 +16,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${not empty user }">
-					<li><a href="#"><span class="badge">${user.email}</span></a></li>
+					<li><a href="#"><span class="badge" style="background-color: #7386d5;">${user.email}</span></a></li>
 				</c:if>
 				<li class="${active=='login'?'active':'' }">
 					<c:if test="${not empty user }">
@@ -26,8 +26,6 @@
 						<a href="<c:url value='/login'/>">Login</a>
 					</c:if>
 				</li>
-				<li class="${active=='board'?'active':'' }"><a href="<c:url value='/boards'/>">Board</a></li>
-				
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

@@ -120,7 +120,7 @@ ul ul a {
 		<!-- Sidebar -->
 		<nav id="sidebar">
 			<div class="sidebar-header">
-				<h3>MINI-PROJECT</h3>
+				<h3><a href="boards">MINI-PROJECT</a></h3>
 			</div>
 
 			<ul class="list-unstyled components">
