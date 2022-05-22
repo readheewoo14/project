@@ -52,8 +52,9 @@
 					bodyHeight : 320,
 					scrollX : false,
 					scrollY : false,
+					rowHeaders: ['rowNum'],
 					columns : [ 
-						  {header : '작성자'  , name : 'email' }
+						{header : '작성자'  , name : 'email' }
 						, {header : '제목' 	, name : 'password'}
 						, {header : '내용'    , name : 'password'}
 						, {header : '결재상태' , name : 'password'}
@@ -66,11 +67,12 @@
 					bodyHeight : 320,
 					scrollX : false,
 					scrollY : false,
+					rowHeaders: ['rowNum'],
 					columns : [ 
-				  		{header : '작성자'  , name : 'email' }
-					  , {header : '제목'    , name : 'password'}
-					  , {header : '내용'    , name : 'password'}
-					  , {header : '결재상태' , name : 'password'}
+						{header : '작성자'  , name : 'email' }
+						, {header : '제목'    , name : 'password'}
+						, {header : '내용'    , name : 'password'}
+						, {header : '결재상태' , name : 'password'}
 					]
 				});
 			}
