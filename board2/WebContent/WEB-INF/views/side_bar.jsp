@@ -125,7 +125,8 @@ ul ul a {
 
 			<ul class="list-unstyled components">
 				<p>REPORT SYSTEM PROJECT</p>
-				<li class="active">
+				<li style="background-color:#35488b"><a href="#">업무작성</a></li>
+				<li>
 					<a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">내업무 보고</a>
 					<ul class="collapse list" id="submenu1">
 						<li><a href="boards">주/월간 업무작성</a></li>
