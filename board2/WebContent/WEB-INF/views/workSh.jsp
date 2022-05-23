@@ -46,7 +46,7 @@
 					</tr>
 				</table>
 			</div>		
-			<div style="margin-inline: 30px;background-color:#d1d7ed6b;padding-top: 10px;padding-bottom: 80px;padding-right: 10px;padding-left: 10px;margin-top:30px">
+			<div style="margin-inline: 30px;background-color:#d1d7ed6b;padding-top: 10px;padding-bottom: 130px;padding-right: 10px;padding-left: 10px;margin-top:30px">
 				<div style="margin-inline:30px;margin-top:40px;">
 					<h4 style="font-weight: bold;"><span style="font-size:23px">업무공유</span><span style="float:right;margin-right:10px;">total(<span id="total">0</span>)</span></h4>
 					<div id="grid"></div>

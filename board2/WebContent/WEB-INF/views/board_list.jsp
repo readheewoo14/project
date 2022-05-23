@@ -18,15 +18,15 @@
 		</style>
 		<title>MINI-PROJECT</title>
 	</head>
-	<body>
+	<body style="background-color:#c7cce76b">
 		<c:import url="side_bar.jsp"></c:import>
 		<c:import url="nav_top.jsp"></c:import>
 		<div id="main">
-			<div style="margin-inline:30px">
+			<div style="margin-inline: 30px;padding-top: 10px;padding-bottom: 20px;padding-right: 10px;padding-left: 10px;margin-top:3px">
 				<h4 style="font-weight: bold;"><span style="font-size:23px">주간 업무 보고</span><span style="float:right;margin-right:10px;">total(<span id="weekTotal">0</span>)</span></h4>
 				<div id="grid1"></div>
 			</div>
-			<div style="margin-top: 57px;margin-inline:30px">
+			<div style="margin-inline: 30px;padding-top: 10px;padding-bottom: 20px;padding-right: 10px;padding-left: 10px;margin-top:3px">
 				<h4 style="font-weight: bold;"><span style="font-size:23px">월간 업무 보고</span><span style="float:right;margin-right:10px;">total(<span id="monthRpTotal">0</span>)</span></h4>
 				<div id="grid2"></div>
 			</div>
