@@ -129,9 +129,9 @@ ul ul a {
 				<li>
 					<a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">내업무 보고</a>
 					<ul class="collapse list" id="submenu1">
-						<li><a href="boards">주/월간 업무작성</a></li>
-						<li><a href="test">주요업무계획</a></li>
-						<li><a href="#">업무공유</a></li>
+						<li><a href="myworkRp">주/월간 업무</a></li>
+						<li><a href="majorBnPlan">주요업무계획</a></li>
+						<li><a href="workSh">업무공유</a></li>
 					</ul></li>
 				<li>
 					<a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">팀업무보고</a>

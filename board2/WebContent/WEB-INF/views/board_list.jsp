@@ -16,7 +16,7 @@
 		    float: right
 		}
 		</style>
-		<title>Board</title>
+		<title>MINI-PROJECT</title>
 	</head>
 	<body>
 		<c:import url="side_bar.jsp"></c:import>
