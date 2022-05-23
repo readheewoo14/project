@@ -18,10 +18,10 @@
 		</style>
 		<title>MINI-PROJECT</title>
 	</head>
-	<body>
+	<body style="background-color:#c7cce76b">
 		<c:import url="side_bar.jsp"></c:import>
 		<c:import url="nav_top.jsp"></c:import>
-		<div id="main">
+		<div id="main" >
 			<div style="margin-inline:30px;height: 80px;background-color:#d1d7ed6b;padding-top: 20px;margin-top: 10px;">
 				<table>
 					<tr>
