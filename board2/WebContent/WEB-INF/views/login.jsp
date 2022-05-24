@@ -139,15 +139,15 @@
 	<div class="login-page">
 		<div class="form">
 			<form class="register-form" action="<c:url value='/users/enroll'/>" method="post">
-				<input type="text" id="email" name="email" placeholder="Email" /> 
-				<input type="password" id="password" name="password" placeholder="Password" /> 
+				<input type="text" id="empId" name="empId" placeholder="사원아이디" /> 
+				<input type="password" id="password" name="password" placeholder="패스워드" /> 
 				<input type="text" id="position" name="position" placeholder="Position" /> 
 				<button type="submit">create</button>
 				<p class="message">Already registered? <a href="#">Sign In</a></p>
 			</form>
 			<form class="login-form" action="<c:url value='/login'/>" method="post">
-				<input type="text" id="email" name="email" placeholder="Email" value="${login.email }"/> 
-				<input type="password" id="password" name="password" placeholder="Password" />
+				<input type="text" id="empId" name="empId" placeholder="사원아이디" value="${login.empId }"/> 
+				<input type="password" id="password" name="password" placeholder="패스워드" />
 				<button type="submit">login</button>
 				<p class="message">Not registered? <a href="#">Create an account</a></p>
 			</form>

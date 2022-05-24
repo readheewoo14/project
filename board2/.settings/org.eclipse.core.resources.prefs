@@ -1,6 +1,8 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/views/board_list.jsp=UTF-8
 encoding//resources/jdbc.properties=UTF-8
+encoding//src/ojc/login/service/LoginService.java=UTF-8
+encoding//src/ojc/user/repository/UserMapper.java=UTF-8
 encoding//src/ojc/web/controller=UTF-8
 encoding//src/ojc/web/controller/HomeController.java=UTF-8
 encoding//src/ojc/web/interceptor/LoginInterceptor.java=UTF-8

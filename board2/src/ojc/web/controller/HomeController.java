@@ -63,4 +63,14 @@ public class HomeController {
 		}
 		return "workSh"; 
 	}
+	
+	// 업무작성 화면
+	@RequestMapping(value = "/workWrite", method = { RequestMethod.GET })	
+	public String workWriteView(HttpSession session, Login login) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			return session.getServletContext().getContextPath() + "login";
+		}
+		return "workWrite"; 
+	}
 }

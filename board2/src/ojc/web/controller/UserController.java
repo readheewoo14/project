@@ -37,13 +37,13 @@ public class UserController {
 	@PostMapping("/enroll")
 	public String postUser(User user, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
 		// 클라이언트 단 또는 서버 단에서 데이터 밸리데이션 체크를 적용하는 것을 권장한다.
-		User duplicatedUser = userMapper.selectByEmail(user.getEmail());
+		User duplicatedUser = userMapper.selectByEmpId(user.getEmpId());
 		if (duplicatedUser == null) {
 			userMapper.insert(user);
 			redirectAttributes.addFlashAttribute("result", "OK");
 		} else {
 			redirectAttributes.addFlashAttribute("result", "FAIL");
-			redirectAttributes.addFlashAttribute("error", "Fail: Email is duplicated.");
+			redirectAttributes.addFlashAttribute("error", "Fail: EmpId is duplicated.");
 		}
 		
 		return "redirect:/login";

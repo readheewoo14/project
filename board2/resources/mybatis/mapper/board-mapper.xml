@@ -8,9 +8,9 @@
 			 , PASSWORD
 		  FROM XUSER
 		 WHERE 1=1 
-		 <if test='email != null and email != ""'>
+		 /*<if test='email != null and email != ""'>
 		   AND EMAIL = #{email} 		 
-		 </if>
+		 </if>*/
 	</select> 
 	
 	

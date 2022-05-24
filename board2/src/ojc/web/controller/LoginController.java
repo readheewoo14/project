@@ -44,7 +44,7 @@ public class LoginController {
 			return "login";
 		} else {
 			User user = new User();
-			user.setEmail(login.getEmail());
+			user.setEmpId(login.getEmpId());
 			user.setPassword(login.getPassword());
 			
 			session.setAttribute("user", user);
