@@ -2,15 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ojc.board.repository.BoardMapper">
 	
-	<select id="getBoardList" parameterType="ojc.board.model.BoardVo" resultType="ojc.board.model.BoardVo">
-		/*ojc.board.repository.BoardMapper.selectById*/
-		SELECT EMAIL
-			 , PASSWORD
-		  FROM XUSER
+	<select id="getWeekJobList" parameterType="ojc.board.model.BoardVo" resultType="ojc.board.model.BoardVo">
+		/*ojc.board.repository.BoardMapper.getWeekJobList*/
+		SELECT A.WEEK_ID
+		     , A.SUBJECT
+		     , A.DEPT_CODE
+		     , A.CREATE_ID
+		     , A.CREATE_DATE
+		     , A.UPDATE_DATE
+		     , A.DELETE_YN
+		     , B.WEEK_RP_JOB_CT
+		  FROM WEEK_JOB_REPORT    A
+		 INNER JOIN WEEK_JOB_DETAIL_REPORT  B
+		    ON A.WEEK_ID = B.WEEK_ID
 		 WHERE 1=1 
-		 /*<if test='email != null and email != ""'>
-		   AND EMAIL = #{email} 		 
-		 </if>*/
+		 <if test='subject != null and subject != ""'>
+		   AND A.SUBJECT LIKE '%' || #{subject} || '%' 		 
+		 </if>
+		 <if test='deptCode != null and deptCode != ""'>
+		   AND A.DEPT_CODE = #{deptCode} 		 
+		 </if>
+		 <if test='createId != null and createId != ""'>
+		   AND A.CREATE_ID = #{createId} 		 
+		 </if>
+		 <if test='weekRpJobCt != null and weekRpJobCt != ""'>
+		   AND WEEK_RP_JOB_CT LIKE '%' || #{weekRpJobCt} || '%' 		 
+		 </if>
+		 <if test='deleteYn == "Y"'>
+		   AND DELETE_YN = 'Y'		 
+		 </if>
 	</select> 
 	
 	

@@ -27,9 +27,9 @@ public class BoardController {
 		return "board_list"; 
 	}
 	
-	@RequestMapping(value = "/getBoardList", method = { RequestMethod.POST})	
-	public String getBoardList(ModelMap model, Login login, @RequestBody BoardVo boardVo) {
-		Object boardList = boardService.getBoardList(boardVo);
+	@RequestMapping(value = "/getWeekJobList", method = { RequestMethod.POST})	
+	public String getWeekJobList(ModelMap model, Login login, @RequestBody BoardVo boardVo) {
+		Object boardList = boardService.getWeekJobList(boardVo);
 		model.addAttribute("boardList", boardList);
 		
 		return "jsonView"; 

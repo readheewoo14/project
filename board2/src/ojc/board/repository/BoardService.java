@@ -12,8 +12,8 @@ public class BoardService {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 
-	public Object getBoardList(BoardVo boardVo) {
-		return sqlSessionTemplate.selectList("getBoardList", boardVo);
+	public Object getWeekJobList(BoardVo boardVo) {
+		return sqlSessionTemplate.selectList("getWeekJobList", boardVo);
 	}
 	
 	

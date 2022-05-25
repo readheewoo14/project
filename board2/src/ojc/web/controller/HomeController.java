@@ -34,14 +34,24 @@ public class HomeController {
 		throw new RuntimeException("Error Test In Controller.");
 	}
 	
-	// 주 월간 업무 화면
-	@RequestMapping(value = "/myworkRp", method = { RequestMethod.GET })	
-	public String myworkRpView(HttpSession session, Login login) {
+	// 주간 업무 화면
+	@RequestMapping(value = "/myworkRpWk", method = { RequestMethod.GET })	
+	public String myworkRpWkView(HttpSession session, Login login) {
 		User user = (User) session.getAttribute("user");
 		if (user == null) {
 			return session.getServletContext().getContextPath() + "login";
 		}
-		return "myworkRp"; 
+		return "myworkRpWk"; 
+	}
+	
+	// 월간 업무 화면
+	@RequestMapping(value = "/myworkRpMt", method = { RequestMethod.GET })	
+	public String myworkRpMtView(HttpSession session, Login login) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			return session.getServletContext().getContextPath() + "login";
+		}
+		return "myworkRpMt"; 
 	}
 
 	// 주요업무계획 화면
