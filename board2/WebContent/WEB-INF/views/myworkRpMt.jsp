@@ -8,13 +8,25 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style type="text/css">
-		#main {
-		    min-width: 85%;
-		    max-width: 85%;
-		    min-height: 80vh;
-		    z-index:0;
-		    float: right
-		}
+			.search {
+ 				position: relative;		
+			}
+			
+			img {
+				position : absolute;
+				width: 17px;
+				top: 10px;
+				right: 12px;
+				margin: 0;
+			}
+			
+			#main {
+			    min-width: 85%;
+			    max-width: 85%;
+			    min-height: 80vh;
+			    z-index:0;
+			    float: right
+			}
 		</style>
 		<title>MINI-PROJECT</title>
 	</head>
@@ -30,14 +42,20 @@
 							<input id="subjectSch" style="width:150px"/>
 						</td>
 						<th style="width:80px;text-align:right">부서</th>
-						<td style="width:200px">
-							<input id="deptCdSch" style="width:80px;border-width: thin;background-color:#80808021" readonly/>
-							<input id="deptNmSch" style="width:90px" />
+						<td style="width:230px">
+							<div class="search">
+								<input id="deptCdSch" style="width:80px;border-width: thin;background-color:#80808021" readonly/>
+								<input id="deptNmSch" style="width:120px" />
+								<img style="margin-right: 15px;margin-top: -3px;cursor:hand" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+							</div>
 						</td>
 						<th style="width:80px;text-align:right">작성자</th>
-						<td style="width:200px">
-							<input id="createCdSch" style="width:80px;border-width: thin;background-color:#80808021" readonly/>
-							<input id="createNmSch" style="width:90px" />
+						<td style="width:230px">
+							<div class="search">
+								<input id="createCdSch" style="width:80px;border-width: thin;background-color:#80808021" readonly/>
+								<input id="createNmSch" style="width:120px" />
+								<img style="margin-right: 15px;margin-top: -3px;cursor:hand" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+							</div>
 						</td>
 						<th style="width:80px;text-align:right"></th>
 						<td style="width:200px">
