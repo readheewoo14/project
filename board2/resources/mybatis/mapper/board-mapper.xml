@@ -22,6 +22,9 @@
 		 <if test='deptCode != null and deptCode != ""'>
 		   AND A.DEPT_CODE = #{deptCode} 		 
 		 </if>
+		 <if test='deptNm != null and deptNm != ""'>
+		   AND A.DEPT_NM LIKE '%' || #{deptNm} || '%' 		 
+		 </if>
 		 <if test='createId != null and createId != ""'>
 		   AND A.CREATE_ID = #{createId} 		 
 		 </if>
