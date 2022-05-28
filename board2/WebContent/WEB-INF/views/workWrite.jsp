@@ -43,8 +43,9 @@
 					</select>
 					
 					<div style="float:right">
-						<button class="btn btn-primary" onclick="imsiSave()">임시저장</button>
-						<button class="btn btn-primary" onclick="save()">저장</button>
+						<button class="btn btn-primary" onclick="setReportImsi()">임시저장</button>
+						<button class="btn btn-primary" onclick="setReport()">저장</button>
+						<button class="btn btn-primary" onclick="test()">테스트</button>
 					</div>
 					
 					<h3 id="subject" style="text-align: center;">주간업무보고</h3>
@@ -72,7 +73,7 @@
 						<tr>
 							<th style="text-align: left;width:150px">작성일자</th>
 							<td>
-								<input id="createDate"  style="width:205px"/>
+								<input id="createDate"  style="width:205px" readonly/>
 							</td>
 						</tr>
 					</table>
@@ -115,9 +116,19 @@
 	
 		<script type="text/javascript">
 			var changeSubject = '';
+			var date = '';
 		
 			$(document).ready(function() {
 				$('#sidebar').css('min-height', '130vh');
+				var today = new Date();
+				var year = today.getFullYear();
+				var month = (today.getMonth() + 1).length > 1 ? today.getMonth() + 1 : '0'+ String(Number(today.getMonth()) + 1);
+				var day = today.getDate();
+				
+				date = year + '-' + month + '-' + day;
+				
+				$('#createDate').val(date);
+				
 			});
 			
 			function changeTextSubject() {
@@ -130,17 +141,21 @@
 				}
 			}
 			
-			//그리드 생성
+			//저장
 			function setReport() {
 				var flag = $('#dropDownSj').val();
-				var createId = $('#createCdSch').val();
-				var createId = $('#createCdSch').val();
-				var createId = $('#createCdSch').val();
-				var createId = $('#createCdSch').val();
-				var createId = $('#createCdSch').val();
-				var createId = $('#createCdSch').val();
-				var createId = $('#createCdSch').val();
-				var createId = $('#createCdSch').val();
+				
+				//추후 가져오는값 코드로 변경
+				var deptCode = $('#deptNm').val();
+				var createId = $('#createNm').val();
+				
+				var createDate = $('#createDate').val();
+				var weekRpJobCt = $('#weekRpJobCt').val();
+				var nxWeekRpJobCt = $('#nxWeekRpJobCt').val();
+				var weekPlJobCt = $('#weekPlJobCt').val();
+				var nxWeekPlJobCt = $('#nxWeekPlJobCt').val();
+				var etcCt = $('#etcCt').val();
+				var subject = flag === '1' ? '주간업무보고' : '월간업무보고';
 				
 				
 				var param = {
@@ -148,8 +163,16 @@
 					deptCode: deptCode, 
 					createId: createId,
 					weekRpJobCt: weekRpJobCt,
-					deleteYn: deleteYn,
+					nxWeekRpJobCt: nxWeekRpJobCt,
+					weekPlJobCt: weekPlJobCt,
+					nxWeekPlJobCt: nxWeekPlJobCt,
+					etcCt: etcCt,
+					subject: subject,
 				};
+				
+				if (!confirm("저장하시겠습니까?")) {
+					return;
+		        } 
 				
 				$.ajax({
 					url: '${pageContext.request.contextPath}/setReport', //주소
@@ -172,9 +195,67 @@
 					    			
 					// [완료 확인 부분]
 					complete:function(data,textStatus) {
-						    				
+						location.href='myworkRpWk'; 				
 					}
 				});		
+			}
+			
+			//임시저장
+			function setReportImsi() {
+				var flag = $('#dropDownSj').val();
+				
+				//추후 가져오는값 코드로 변경
+				var deptCode = $('#deptNm').val();
+				var createId = $('#createNm').val();
+				
+				var createDate = $('#createDate').val();
+				var weekRpJobCt = $('#weekRpJobCt').val();
+				var nxWeekRpJobCt = $('#nxWeekRpJobCt').val();
+				var weekPlJobCt = $('#weekPlJobCt').val();
+				var nxWeekPlJobCt = $('#nxWeekPlJobCt').val();
+				var etcCt = $('#etcCt').val();
+				var subject = flag === '1' ? '주간업무보고' : '월간업무보고';
+				
+				
+				var param = {
+					subject: subject,
+					deptCode: deptCode, 
+					createId: createId,
+					weekRpJobCt: weekRpJobCt,
+				};
+				
+				if (!confirm("저장하시겠습니까?")) {
+					return;
+		        } 
+				
+				$.ajax({
+					url: '${pageContext.request.contextPath}/setReportImsi', //주소
+					data: JSON.stringify(param), //전송 데이터
+					type: "POST", //전송 타입
+					async: true, //비동기 여부
+					timeout: 5000, //타임 아웃 설정
+					dataType: "JSON", //응답받을 데이터 타입 (XML,JSON,TEXT,HTML,JSONP)    			
+					contentType: "application/json; charset=utf-8", //헤더의 Content-Type을 설정
+					    			
+					// [응답 확인 부분 - json 데이터를 받습니다]
+					success: function(response) {
+					},
+					    			
+					// [에러 확인 부분]
+					error: function(xhr) {
+						   				
+					},
+					    			
+					// [완료 확인 부분]
+					complete:function(data,textStatus) {
+						console.log('##########################');
+						location.href='myworkRpWk';
+					}
+				});		
+			}
+			
+			function test() {
+				location.href='myworkRpWk';
 			}
 		</script>
 	</body>

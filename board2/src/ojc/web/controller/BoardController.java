@@ -35,6 +35,20 @@ public class BoardController {
 		return "jsonView"; 
 	}
 	
+	@RequestMapping(value = "/setReport", method = { RequestMethod.POST})	
+	public String setReport(ModelMap model, Login login, @RequestBody BoardVo boardVo) {
+		boardService.setReport(boardVo);
+		boardService.setReportD(boardVo);
+		return "jsonView"; 
+	}
+	
+	@RequestMapping(value = "/setReportImsi", method = { RequestMethod.POST})	
+	public String setReportImsi(ModelMap model, Login login, @RequestBody BoardVo boardVo) {
+		boardService.setReportImsi(boardVo);
+		boardService.setReportDImsi(boardVo);
+		return "jsonView"; 
+	}
+	
 	@RequestMapping(value = "/test", method = { RequestMethod.GET })	
 	public String testView(HttpSession session, Login login) {
 		User user = (User) session.getAttribute("user");

@@ -12,7 +12,37 @@ public class BoardVo {
 	private String updateDate;  
 	private String deleteYn;  
 	private String weekRpJobCt;
+
+	private String nxWeekRpJobCt;
+	private String weekPlJobCt;
+	private String nxWeekPlJobCt;
+	private String etcCt;
+
 	
+	public final String getNxWeekRpJobCt() {
+		return nxWeekRpJobCt;
+	}
+	public final void setNxWeekRpJobCt(String nxWeekRpJobCt) {
+		this.nxWeekRpJobCt = nxWeekRpJobCt;
+	}
+	public final String getWeekPlJobCt() {
+		return weekPlJobCt;
+	}
+	public final void setWeekPlJobCt(String weekPlJobCt) {
+		this.weekPlJobCt = weekPlJobCt;
+	}
+	public final String getNxWeekPlJobCt() {
+		return nxWeekPlJobCt;
+	}
+	public final void setNxWeekPlJobCt(String nxWeekPlJobCt) {
+		this.nxWeekPlJobCt = nxWeekPlJobCt;
+	}
+	public final String getEtcCt() {
+		return etcCt;
+	}
+	public final void setEtcCt(String etcCt) {
+		this.etcCt = etcCt;
+	}
 	public final String getWeekId() {
 		return weekId;
 	}
