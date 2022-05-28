@@ -80,8 +80,7 @@
 			//그리드 생성
 			function getList() {
 				var param = {
-					email: 'test',
-					password: '1111',
+					
 				};
 				
 				$.ajax({
