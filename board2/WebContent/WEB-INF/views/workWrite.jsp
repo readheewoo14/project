@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+	String flag = request.getParameter("flag") == "" ? "" :  request.getParameter("flag");
+	String weekId = request.getParameter("weekId") == "" ? "" :  request.getParameter("weekId");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -35,6 +39,8 @@
 		<c:import url="side_bar.jsp"></c:import>
 		<c:import url="nav_top.jsp"></c:import>
 		<div id="main">
+			<input id="flag" type="hidden" value="<%=flag%>"/>
+			<input id="weekId" type="hidden" value="<%=weekId%>"/>
 			<div style="margin-inline:30px;margin-top:30px;height: 1100px;background-color:#d1d7ed6b;padding-top: 20px;">
 				<div style="margin-inline:30px;">
 					<select id="dropDownSj" style="margin-inline:30px;" onchange="changeTextSubject()">
@@ -43,9 +49,9 @@
 					</select>
 					
 					<div style="float:right">
-						<button class="btn btn-primary" onclick="setReportImsi()">임시저장</button>
-						<button class="btn btn-primary" onclick="setReport()">저장</button>
-						<button class="btn btn-primary" onclick="test()">테스트</button>
+						<button id="imsiSaveButton" class="btn btn-primary" onclick="setReportImsi()">임시저장</button>
+						<button id="saveButton" class="btn btn-primary" onclick="setReport()">저장</button>
+						<button id="updateButton" class="btn btn-primary" onclick="setReportUp()">수정</button>
 					</div>
 					
 					<h3 id="subject" style="text-align: center;">주간업무보고</h3>
@@ -54,8 +60,8 @@
 							<th style="text-align: left;width:150px">부서명</th>
 							<td>
 								<div class="search">
-									<input id="deptCd" style="width:80px;border-width: thin;background-color:#80808021" readonly/>
-									<input id="deptNm" style="width:120px" />
+									<input id="deptCd" style="width:200px;border-width: thin;background-color:#80808021" readonly/>
+									<input id="deptNm" style="width:220px" />
 									<img style="width: 15px;margin-top: -3px;cursor:hand" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 								</div>
 							</td>
@@ -64,8 +70,8 @@
 							<th style="text-align: left;width:150px">작성자</th>
 							<td>
 								<div class="search">
-									<input id="createCd" style="width:80px;border-width: thin;background-color:#80808021" readonly/>
-									<input id="createNm" style="width:120px" />
+									<input id="createCd" style="width:200px;border-width: thin;background-color:#80808021" readonly/>
+									<input id="createNm" style="width:220px" />
 									<img style="width: 15px;margin-top: -3px;cursor:hand" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 								</div>
 							</td>
@@ -120,15 +126,50 @@
 		
 			$(document).ready(function() {
 				$('#sidebar').css('min-height', '130vh');
-				var today = new Date();
-				var year = today.getFullYear();
-				var month = (today.getMonth() + 1).length > 1 ? today.getMonth() + 1 : '0'+ String(Number(today.getMonth()) + 1);
-				var day = today.getDate();
 				
-				date = year + '-' + month + '-' + day;
-				
-				$('#createDate').val(date);
-				
+				var flag = $('#flag').val();
+				if(flag === 'update'){
+					getSelect();
+					
+					$('#imsiSaveButton').hide();
+					$('#saveButton').hide();
+					$('#dropDownSj').hide();
+				} else if(flag === 'select'){
+					getSelect();
+					
+					$('#imsiSaveButton').hide();
+					$('#saveButton').hide();
+					$('#dropDownSj').hide();
+					$('#updateButton').hide();
+					
+					$('#deptNm').attr('readonly', true);
+					$('#createNm').attr('readonly', true);
+					$('#createDate').attr('readonly', true);
+					$('#weekRpJobCt').attr('readonly', true);
+					$('#nxWeekRpJobCt').attr('readonly', true);
+					$('#weekPlJobCt').attr('readonly', true);
+					$('#nxWeekPlJobCt').attr('readonly', true);
+					$('#etcCt').attr('readonly', true);
+					
+					$('#deptNm').css('background-color', '#80808021');
+					$('#createNm').css('background-color', '#80808021');
+					$('#createDate').css('background-color', '#80808021');
+					$('#weekRpJobCt').css('background-color', '#80808021');
+					$('#nxWeekRpJobCt').css('background-color', '#80808021');
+					$('#weekPlJobCt').css('background-color', '#80808021');
+					$('#nxWeekPlJobCt').css('background-color', '#80808021');
+					$('#etcCt').css('background-color', '#80808021');
+				}else{
+					var today = new Date();
+					var year = today.getFullYear();
+					var month = (today.getMonth() + 1).length > 1 ? today.getMonth() + 1 : '0'+ String(Number(today.getMonth()) + 1);
+					var day = today.getDate();
+					
+					date = year + '-' + month + '-' + day;
+					
+					$('#createDate').val(date);
+					$('#updateButton').hide();
+				}
 			});
 			
 			function changeTextSubject() {
@@ -168,6 +209,7 @@
 					nxWeekPlJobCt: nxWeekPlJobCt,
 					etcCt: etcCt,
 					subject: subject,
+					flag: flag
 				};
 				
 				if (!confirm("저장하시겠습니까?")) {
@@ -195,7 +237,8 @@
 					    			
 					// [완료 확인 부분]
 					complete:function(data,textStatus) {
-						location.href='myworkRpWk'; 				
+						
+						location.href='myworkRpWk?msg=' + '저장완료'; 				
 					}
 				});		
 			}
@@ -248,15 +291,107 @@
 					    			
 					// [완료 확인 부분]
 					complete:function(data,textStatus) {
-						console.log('##########################');
-						location.href='myworkRpWk';
+						alert('임시저장을 완료하였습니다.');
+						$('#createDate').val('');
+						$('#weekRpJobCt').val('');
+						$('#nxWeekRpJobCt').val('');
+						$('#weekPlJobCt').val('');
+						$('#nxWeekPlJobCt').val('');
 					}
 				});		
 			}
 			
-			function test() {
-				location.href='myworkRpWk';
+			function getSelect(){
+				var param = {
+					weekId: $('#weekId').val(),						
+				};
+				
+				$.ajax({
+					url: '${pageContext.request.contextPath}/getWeekJobList', //주소
+					data: JSON.stringify(param), //전송 데이터
+					type: "POST", //전송 타입
+					async: true, //비동기 여부
+					timeout: 5000, //타임 아웃 설정
+					dataType: "JSON", //응답받을 데이터 타입 (XML,JSON,TEXT,HTML,JSONP)    			
+					contentType: "application/json; charset=utf-8", //헤더의 Content-Type을 설정
+					    			
+					// [응답 확인 부분 - json 데이터를 받습니다]
+					success: function(response) {
+						var data = response.boardList[0];
+						
+						$('#deptCd').val(data.deptCode);
+						$('#createCd').val(data.createId);
+						$('#createDate').val(data.createDate);
+						$('#weekRpJobCt').val(data.weekRpJobCt);
+						$('#nxWeekRpJobCt').val(data.nxWeekRpJobCt);
+						$('#weekPlJobCt').val(data.weekPlJobCt);
+						$('#nxWeekPlJobCt').val(data.nxWeekPlJobCt);
+						$('#etcCt').val(data.etcCt);
+					},
+					    			
+					// [에러 확인 부분]
+					error: function(xhr) {
+						   				
+					},
+					    			
+					// [완료 확인 부분]
+					complete:function(data,textStatus) {
+						    				
+					}
+				});		
 			}
+			
+			function setReportUp(){
+				var weekId = $('#weekId').val();
+				var deptCode = $('#deptNm').val();
+				var createId = $('#createNm').val();
+				
+				var createDate = $('#createDate').val();
+				var weekRpJobCt = $('#weekRpJobCt').val();
+				var nxWeekRpJobCt = $('#nxWeekRpJobCt').val();
+				var weekPlJobCt = $('#weekPlJobCt').val();
+				var nxWeekPlJobCt = $('#nxWeekPlJobCt').val();
+				var etcCt = $('#etcCt').val();
+				
+				var param = {
+					weekId: weekId,	
+					weekRpJobCt: weekRpJobCt,
+					nxWeekRpJobCt: nxWeekRpJobCt,
+					weekPlJobCt: weekPlJobCt,
+					nxWeekPlJobCt: nxWeekPlJobCt,
+					etcCt: etcCt,
+				};
+				
+				if (!confirm("수정하시겠습니까?")) {
+					return;
+		        } 
+				
+				$.ajax({
+					url: '${pageContext.request.contextPath}/setReportUp', //주소
+					data: JSON.stringify(param), //전송 데이터
+					type: "POST", //전송 타입
+					async: true, //비동기 여부
+					timeout: 5000, //타임 아웃 설정
+					dataType: "JSON", //응답받을 데이터 타입 (XML,JSON,TEXT,HTML,JSONP)    			
+					contentType: "application/json; charset=utf-8", //헤더의 Content-Type을 설정
+					    			
+					// [응답 확인 부분 - json 데이터를 받습니다]
+					success: function(response) {
+						
+					},
+					    			
+					// [에러 확인 부분]
+					error: function(xhr) {
+						   				
+					},
+					    			
+					// [완료 확인 부분]
+					complete:function(data,textStatus) {
+						location.href='myworkRpWk?msg=' + '수정완료'; 					
+					}
+				});	
+			}
+			
 		</script>
 	</body>
 </html>

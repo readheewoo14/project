@@ -31,6 +31,14 @@ public class BoardService {
 	public void setReportDImsi(BoardVo boardVo) {
 		sqlSessionTemplate.insert("setReportDImsi", boardVo);
 	}
+
+	public void setReportUpD(BoardVo boardVo) {
+		sqlSessionTemplate.update("setReportUpD", boardVo);
+	}
+
+	public void setWeekDel(BoardVo boardVo) {
+		sqlSessionTemplate.update("setWeekDel", boardVo);
+	}
 	
 	
 }

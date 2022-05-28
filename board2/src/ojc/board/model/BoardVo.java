@@ -7,6 +7,7 @@ public class BoardVo {
 	private String weekId;  
 	private String subject;  
 	private String deptCode;  
+	private String deptNm;  
 	private String createId;  
 	private String createDate;  
 	private String updateDate;  
@@ -17,8 +18,21 @@ public class BoardVo {
 	private String weekPlJobCt;
 	private String nxWeekPlJobCt;
 	private String etcCt;
+	private String flag;
 
 	
+	public final String getDeptNm() {
+		return deptNm;
+	}
+	public final void setDeptNm(String deptNm) {
+		this.deptNm = deptNm;
+	}
+	public final String getFlag() {
+		return flag;
+	}
+	public final void setFlag(String flag) {
+		this.flag = flag;
+	}
 	public final String getNxWeekRpJobCt() {
 		return nxWeekRpJobCt;
 	}
