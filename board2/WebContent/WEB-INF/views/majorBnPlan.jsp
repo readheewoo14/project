@@ -41,7 +41,7 @@
 						<td style="width:200px">
 						</td>
 						<td>
-							<button type="button" class="btn btn-primary" style="margin-left:150px">SEARCH</button>
+							<button type="button" class="btn btn-primary" style="margin-left:150px">검색</button>
 						</td>
 					</tr>
 				</table>

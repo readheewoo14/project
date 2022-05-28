@@ -38,12 +38,30 @@
 				<table style="border-collapse: separate;border-spacing: 10px;">
 					<tr>
 						<th style="width:80px;text-align:right">제목</th>
-						<td style="width:200px" colspan="5">
-							<input id="subjectSch" style="width:500px"/>
+						<td style="width:200px">
+							<input id="subjectSch" style="width:150px"/>
 						</td>
-						
+						<th style="width:80px;text-align:right">부서</th>
+						<td style="width:230px">
+							<div class="search">
+								<input id="deptCdSch" style="width:80px;border-width: thin;background-color:#80808021" readonly/>
+								<input id="deptNmSch" style="width:120px" />
+								<img style="margin-right: 15px;margin-top: -3px;cursor:hand" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+							</div>
+						</td>
+						<th style="width:80px;text-align:right">작성자</th>
+						<td style="width:230px">
+							<div class="search">
+								<input id="createCdSch" style="width:80px;border-width: thin;background-color:#80808021" readonly/>
+								<input id="createNmSch" style="width:120px" />
+								<img style="margin-right: 15px;margin-top: -3px;cursor:hand" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+							</div>
+						</td>
+						<th style="width:80px;text-align:right"></th>
+						<td style="width:200px">
+						</td>
 						<td rowspan="2">
-							<button type="button" class="btn btn-primary" style="margin-left:200px;width:120px" onclick="getList()">검색</button>
+							<button type="button" class="btn btn-primary" style="margin-left:100px;width:120px" onclick="getList()">검색</button>
 						</td>
 					</tr>
 					<tr>
@@ -80,7 +98,10 @@
 				// 최초 조회 
 				getList();
 				
-				
+				//jquery 방식
+				/* $('#buttonTest').click(function(){
+					getList();
+				}); */
 			});
 			var grid1;
 			var gridData = [];
@@ -110,6 +131,7 @@
 				var deptCode = $('#deptCdSch').val();
 				var subject = $('#subjectSch').val();
 				var weekRpJobCt = $('#weekRpJobCtSch').val();
+				
 				var deleteYn = document.getElementById('deleteYnSch').checked === true ? 'Y' : 'N';
 				
 				var param = {
