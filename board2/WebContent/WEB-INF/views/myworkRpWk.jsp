@@ -105,7 +105,7 @@
 					rowHeaders: ['checkbox','rowNum'],
 					columns : [ 
 						{header : '작성자'   , name : 'createId' , width: 200, align: 'center'}
-						, {header : '부서'  , name : 'deptNm'   , width: 200, align: 'center'}
+						, {header : '부서'  , name : 'deptCode'   , width: 200, align: 'center'}
 						, {header : '제목'  , name : 'subject', align: 'left'}
 						, {header : '금주운영업무내용'  , name : 'weekRpJobCt' , align: 'left'}
 						, {header : '키값'  , name : 'weekId' , align: 'left', hidden: true}

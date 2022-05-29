@@ -20,6 +20,9 @@
 		 INNER JOIN WEEK_JOB_DETAIL_REPORT  B
 		    ON A.WEEK_ID = B.WEEK_ID
 		 WHERE 1=1 
+		 <if test='weekId != null and weekId != ""'>
+		   AND A.WEEK_ID = #{weekId}  		 
+		 </if>
 		 <if test='subject != null and subject != ""'>
 		   AND A.SUBJECT LIKE '%' || #{subject} || '%' 		 
 		 </if>
