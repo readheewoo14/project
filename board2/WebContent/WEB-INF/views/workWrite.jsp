@@ -237,7 +237,6 @@
 					    			
 					// [완료 확인 부분]
 					complete:function(data,textStatus) {
-						
 						location.href='myworkRpWk?msg=' + '저장완료'; 				
 					}
 				});		

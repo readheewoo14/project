@@ -60,7 +60,9 @@
 		    DECODE((SELECT COUNT(WEEK_ID) FROM WEEK_JOB_REPORT  WHERE 1=1 AND CREATE_ID = #{createId}), 0, 
 		            #{createId}||TO_CHAR(SYSDATE, 'YYMMDD')||'0001'
 		             , #{createId}|| TO_CHAR(SYSDATE, 'YYMMDD') 
-		                    || LPAD(TO_CHAR(TO_NUMBER(SUBSTR(#{createId}||TO_CHAR(SYSDATE, 'YYMMDD')||'0001', 11,4)) + 1), 4, '0'))
+		                    || LPAD(TO_CHAR(TO_NUMBER(SUBSTR(#{createId}||TO_CHAR(SYSDATE, 'YYMMDD')||
+		                    (SELECT MAX(SUBSTR(WEEK_ID, 11, 4)) FROM WEEK_JOB_REPORT  WHERE 1=1 AND CREATE_ID = #{createId})
+		                    , 11,4)) + 1), 4, '0'))
 		    , TO_CHAR(SYSDATE, 'YYYY-MM-DD') || #{subject} 	
 		    , #{createId} 	
 		    , #{deptCode}
@@ -96,7 +98,7 @@
 			          , #{etcCt} 			AS ETC_CT
 			      FROM WEEK_JOB_REPORT
 			     WHERE 1=1 
-			     ORDER BY ROWNUM DESC
+			     ORDER BY WEEK_ID DESC
 			     ) A
 			 WHERE 1=1 
 			   AND ROWNUM = 1
