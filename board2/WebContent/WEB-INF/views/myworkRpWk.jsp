@@ -201,10 +201,7 @@
 					    			
 					// [응답 확인 부분 - json 데이터를 받습니다]
 					success: function(response) {
-						gridData = response.boardList;
-						
-						grid1.resetData(gridData); 
-						$('#weekTotal').text(gridData.length);
+						getList();
 					},
 					    			
 					// [에러 확인 부분]
@@ -214,7 +211,7 @@
 					    			
 					// [완료 확인 부분]
 					complete:function(data,textStatus) {
-						getList();				
+								
 					}
 				});		
 			}
