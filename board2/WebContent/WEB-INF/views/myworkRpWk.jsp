@@ -214,7 +214,7 @@
 					    			
 					// [완료 확인 부분]
 					complete:function(data,textStatus) {
-						    				
+						getList();				
 					}
 				});		
 			}
